@@ -14,7 +14,7 @@ app.use(express.static(path.resolve(path.join(__dirname, './build'))))
 
 app.get('/getfiles', (req, res, next) => {
   const jsFolder = path.resolve(path.join(__dirname, './build/static/js'))
-  const cssFolder = './build/static/css'
+  const cssFolder = path.resolve(path.join(__dirname, './build/static/css'))
   jsFiles = []
   cssFiles = []
   fs.readdirSync(jsFolder).forEach((eachFile) => {
