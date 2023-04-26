@@ -7,14 +7,14 @@ let app = express()
 app.use(express.json()) // Parsing data
 app.use(
   cors({
-    origin: true //Enabling cors
+    origin: '*' //Enabling cors
   })
 )
 app.use(express.static(path.resolve(path.join(__dirname, './build'))))
 
 app.get('/getfiles', (req, res, next) => {
-  const jsFolder = path.resolve(path.join(__dirname, './build/static/js'))
-  const cssFolder = path.resolve(path.join(__dirname, './build/static/css'))
+  const jsFolder = path.resolve(path.join(__dirname, './build/js'))
+  const cssFolder = path.resolve(path.join(__dirname, './build/css'))
   jsFiles = []
   cssFiles = []
   fs.readdirSync(jsFolder).forEach((eachFile) => {
